@@ -179,12 +179,25 @@ input, select, textarea {
   margin-left: var(--sidebar-width);
   padding-top: var(--navbar-height);
   min-height: 100vh;
+  transition: margin-left var(--transition-base);
+}
+
+@media (max-width: 1024px) {
+  .main-content {
+    margin-left: 0;
+  }
 }
 
 .page-container {
   max-width: var(--content-max-width);
   margin: 0 auto;
   padding: var(--space-2xl) var(--space-xl);
+}
+
+@media (max-width: 768px) {
+  .page-container {
+    padding: var(--space-xl) var(--space-md);
+  }
 }
 
 /* ── Typography ── */
@@ -1509,39 +1522,66 @@ input[type="range"]::-webkit-slider-thumb:hover {
   flex-shrink: 0;
 }
 
-/* ── Learn Page Responsive ── */
-@media (max-width: 768px) {
-  .learn-hero__title {
-    font-size: 2rem;
+/* ── Global Layout Responsive ── */
+@media (max-width: 1024px) {
+  .sidebar {
+    transform: translateX(-100%);
+    box-shadow: none;
+    background: #0a0a12 !important; /* Solid background on mobile */
   }
 
-  .learn-compare {
-    grid-template-columns: 1fr;
+  .sidebar.open {
+    transform: translateX(0);
+    box-shadow: 20px 0 50px rgba(0, 0, 0, 0.5);
   }
 
-  .learn-ml-tree__branches {
-    grid-template-columns: 1fr;
+  .sidebar-mobile-toggle {
+    display: flex !important;
   }
 
-  .learn-ts-examples {
-    grid-template-columns: 1fr 1fr;
+  .sidebar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    z-index: 95;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--transition-base);
   }
 
-  .learn-model-flow {
-    flex-direction: column;
-    gap: var(--space-sm);
-  }
-
-  .learn-flow-arrow {
-    transform: rotate(90deg);
-    margin: 0;
-  }
-
-  .learn-pattern-controls {
-    flex-direction: column;
-  }
-
-  .learn-pattern-btn {
-    width: 100%;
+  .sidebar-overlay.open {
+    opacity: 1;
+    pointer-events: auto;
   }
 }
+
+@media (max-width: 768px) {
+  h1 { font-size: 1.8rem; }
+  h2 { font-size: 1.4rem; }
+  
+  .learning-path {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+
+  .params-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Adjust model view page layout */
+  .model-view__header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-md);
+  }
+
+  /* Fix for charts on very small screens */
+  .chart-container {
+    height: 300px !important;
+  }
+}
+

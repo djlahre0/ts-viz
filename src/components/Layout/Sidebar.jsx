@@ -42,26 +42,35 @@ export default function Sidebar() {
 
   return (
     <>
+      {/* Mobile Backdrop Overlay */}
+      <div 
+        className={`sidebar-overlay ${mobileOpen ? 'open' : ''}`}
+        onClick={() => setMobileOpen(false)}
+      />
+
       {/* Mobile toggle */}
       <button
         className="sidebar-mobile-toggle"
         onClick={() => setMobileOpen(!mobileOpen)}
         style={{
           position: 'fixed',
-          top: '16px',
-          left: '16px',
+          top: '12px',
+          left: '12px',
           zIndex: 200,
           display: 'none',
-          width: '40px',
-          height: '40px',
+          width: '44px',
+          height: '44px',
           borderRadius: 'var(--radius-md)',
           background: 'var(--bg-card)',
           border: '1px solid var(--border-subtle)',
           alignItems: 'center',
           justifyContent: 'center',
+          boxShadow: 'var(--shadow-md)',
+          backdropFilter: 'blur(10px)',
+          color: 'var(--text-primary)',
         }}
       >
-        {mobileOpen ? <X size={18} /> : <Menu size={18} />}
+        {mobileOpen ? <X size={20} /> : <Menu size={20} />}
       </button>
 
       <aside
@@ -116,7 +125,7 @@ export default function Sidebar() {
 
         {/* Nav Links */}
         <div style={{ padding: '12px 12px 8px' }}>
-          <Link to="/learn" style={{ textDecoration: 'none' }}>
+          <Link to="/learn" style={{ textDecoration: 'none' }} onClick={() => setMobileOpen(false)}>
             <div
               style={{
                 display: 'flex',
@@ -136,7 +145,7 @@ export default function Sidebar() {
               Learn Basics
             </div>
           </Link>
-          <Link to="/" style={{ textDecoration: 'none' }}>
+          <Link to="/" style={{ textDecoration: 'none' }} onClick={() => setMobileOpen(false)}>
             <div
               style={{
                 display: 'flex',
@@ -155,7 +164,7 @@ export default function Sidebar() {
               Home
             </div>
           </Link>
-          <Link to="/compare" style={{ textDecoration: 'none' }}>
+          <Link to="/compare" style={{ textDecoration: 'none' }} onClick={() => setMobileOpen(false)}>
             <div
               style={{
                 display: 'flex',
