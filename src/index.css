@@ -1572,6 +1572,39 @@ input[type="range"]::-webkit-slider-thumb:hover {
     grid-template-columns: 1fr !important;
   }
 
+  /* ── Page-Level Stacking Fixes ── */
+  .learn-compare,
+  .learn-ts-examples,
+  .learn-ml-tree__branches,
+  .learn-glossary {
+    grid-template-columns: 1fr !important;
+  }
+
+  .learn-ml-tree__connector {
+    display: none;
+  }
+
+  .learn-model-flow {
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  .learn-flow-arrow {
+    transform: rotate(90deg);
+    margin: var(--space-xs) 0;
+    font-size: 1.5rem;
+  }
+
+  .learn-pattern-controls {
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  .learn-pattern-btn {
+    width: 100%;
+    min-width: 0;
+  }
+
   /* Adjust model view page layout */
   .model-view__header {
     flex-direction: column;
@@ -1584,4 +1617,5 @@ input[type="range"]::-webkit-slider-thumb:hover {
     height: 300px !important;
   }
 }
+
 
