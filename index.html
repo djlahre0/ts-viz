@@ -9,7 +9,8 @@
     <script type="text/javascript">
       // handle redirection for SPAs on GitHub Pages
       (function(l) {
-        if (l.search.indexOf('redirect=') !== -1) {
+        // Only run on .github.io domains to avoid interference with Vercel or Localhost
+        if (l.hostname.indexOf('github.io') !== -1 && l.search.indexOf('redirect=') !== -1) {
           var decoded = l.search.slice(1).split('&').map(function(s) { 
             return s.replace(/~and~/g, '&') 
           }).filter(function(s) {
