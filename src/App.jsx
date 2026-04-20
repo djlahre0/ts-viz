@@ -5,6 +5,7 @@ import Home from './pages/Home';
 import ModelPage from './pages/ModelPage';
 import Compare from './pages/Compare';
 import Learn from './pages/Learn';
+import RegressionGuide from './pages/RegressionGuide';
 import './index.css';
 
 /** Scroll to top on route change */
@@ -28,6 +29,7 @@ export default function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/learn" element={<Learn />} />
+            <Route path="/regression-guide" element={<RegressionGuide />} />
             <Route path="/model/:modelId" element={<ModelPage />} />
             <Route path="/compare" element={<Compare />} />
           </Routes>

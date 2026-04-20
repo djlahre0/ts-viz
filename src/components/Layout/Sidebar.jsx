@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { getModelsByEra, ERA_LABELS } from '../../data/models';
 import {
   Home, GitCompare, ChevronDown, ChevronRight, Menu, X,
-  Layers, Brain, Cpu, Sparkles, BookOpen, Search,
+  Layers, Brain, Cpu, Sparkles, BookOpen, Search, Network,
 } from 'lucide-react';
 
 const ERA_ICONS = {
@@ -181,6 +181,25 @@ export default function Sidebar() {
             >
               <GitCompare size={16} />
               Compare Models
+            </div>
+          </Link>
+          <Link to="/regression-guide" style={{ textDecoration: 'none' }} onClick={() => setMobileOpen(false)}>
+            <div
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '10px',
+                padding: '8px 12px',
+                borderRadius: 'var(--radius-md)',
+                fontSize: '0.85rem',
+                fontWeight: 500,
+                color: isActive('/regression-guide') ? 'var(--text-primary)' : 'var(--text-secondary)',
+                background: isActive('/regression-guide') ? 'var(--bg-glass-hover)' : 'transparent',
+                transition: 'all var(--transition-fast)',
+              }}
+            >
+              <Network size={16} />
+              Regression Pipelines
             </div>
           </Link>
         </div>
